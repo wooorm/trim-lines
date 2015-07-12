@@ -7,10 +7,3 @@ node_js:
 - iojs
 sudo: false
 after_script: npm install coveralls@2.10.0 && cat ./coverage/lcov.info | coveralls
-deploy:
-  provider: npm
-  email: tituswormer@gmail.com
-  api_key:
-    secure: tlW5fxvGoUpCAfADrM/0EXbrXsIjzIPBkc+eEuYvdv1Cl0Qk4RQRzdQwtjkvmpL9mM65p6js6/0J+fByrP5H8DP4j+abVsUDSzj5xDRrM5EQIAa02srvtI1i1DOKm2g17IPJt3vw5lINJJfM88dJ24GgQhdc7pF8d6czrRUwMfgMN5jSRnDj5PChuwZa+CSV+Z7Qi1irH+J8F1GxSKK7/+r3bEspnobGlFZP85s7sv7B3Y8n3Ibilfq0Tj8+gl2btSGQUScikIfoqmOXRmulpaoytX8ds0lQ9HeMsU5Zwk4ymQZPT7fsJoAw5cLzn/1C59jTKUAwdjGMjp/LmF8VHXb62vN7wdyC1gk+MMa5TLXO4ij4tohhgjAqlSe5d7HOVMNBg4ai2MbGRvluDO5siuRu1bZ1jT5bOt4tIS2jtdi4dgRySrvOK623eGVeFeRuRDApii6e/aB9C3jfNx8vkvTLTKIN1hhl+VUqfKyeIfb7LCG9inKKYLPBWul5SBK8RTTJY0OnfJUaZakyJr0egrrOVWHkqU4Mp5iKlmPy4jfoRun3vgGO08b54XxE9DLwdfI6mxPJ30y+EZNoCpxHwcnQFQfG66nrm/Z3mGuK0UhWp7kggFGHlV95rYAXMskOn3WjnJAj0MJ3sBbX3epx8s2x+20YtGeZLaTRUKSNdEk=
-  on:
-    repo: wooorm/trim-lines
