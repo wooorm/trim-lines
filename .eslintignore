@@ -1,0 +1,6 @@
+build/
+components/
+coverage/
+build.js
+trim-lines.js
+trim-lines.min.js
