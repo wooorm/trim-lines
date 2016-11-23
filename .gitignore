@@ -1,8 +1,6 @@
 .DS_Store
 *.log
-build/
-bower_components/
-components/
 coverage/
 node_modules/
-build.js
+trim-lines.js
+trim-lines.min.js
