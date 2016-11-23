@@ -21,17 +21,15 @@
   "author": "Titus Wormer <tituswormer@gmail.com>",
   "devDependencies": {
     "browserify": "^10.0.0",
-    "eslint": "^0.24.0",
     "esmangle": "^1.0.0",
     "istanbul": "^0.3.0",
-    "jscs": "^1.0.0",
-    "jscs-jsdoc": "^1.0.0",
     "mdast": "^0.26.0",
     "mdast-github": "^0.3.1",
     "mdast-lint": "^0.4.1",
     "mdast-usage": "^0.3.0",
     "mdast-yaml-config": "^0.2.0",
-    "mocha": "^2.0.0"
+    "mocha": "^2.0.0",
+    "xo": "^0.17.1"
   },
   "scripts": {
     "test-api": "mocha --check-leaks test.js",
@@ -39,13 +37,17 @@
     "test-coverage": "istanbul cover _mocha -- --check-leaks test.js",
     "test-travis": "npm run test-coveralls",
     "test": "npm run test-api",
-    "lint-api": "eslint .",
-    "lint-style": "jscs --reporter inline .",
-    "lint": "npm run lint-api && npm run lint-style",
+    "lint": "xo",
     "make": "npm run lint && npm run test-coverage",
     "build-md": "mdast . LICENSE --output --quiet",
     "build-bundle": "browserify index.js --bare -s trimLines > trim-lines.js",
     "postbuild-bundle": "esmangle trim-lines.js > trim-lines.min.js",
     "build": "npm run build-md && npm run build-bundle"
+  },
+  "xo": {
+    "space": true,
+    "ignore": [
+      "trim-lines.js"
+    ]
   }
 }
