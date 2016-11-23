@@ -10,44 +10,51 @@
     "break",
     "trim"
   ],
-  "files": [
-    "index.js",
-    "LICENSE"
+  "repository": "https://github.com/wooorm/trim-lines",
+  "bugs": "https://github.com/wooorm/trim-lines/issues",
+  "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
+  "contributors": [
+    "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/wooorm/trim-lines.git"
-  },
-  "author": "Titus Wormer <tituswormer@gmail.com>",
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {},
   "devDependencies": {
     "browserify": "^10.0.0",
     "esmangle": "^1.0.0",
-    "istanbul": "^0.3.0",
     "mdast": "^0.26.0",
     "mdast-github": "^0.3.1",
     "mdast-lint": "^0.4.1",
     "mdast-usage": "^0.3.0",
     "mdast-yaml-config": "^0.2.0",
     "mocha": "^2.0.0",
+    "tape": "^4.6.3",
     "xo": "^0.17.1"
   },
   "scripts": {
-    "test-api": "mocha --check-leaks test.js",
-    "test-coveralls": "istanbul cover _mocha --report lcovonly -- --check-leaks test.js",
-    "test-coverage": "istanbul cover _mocha -- --check-leaks test.js",
-    "test-travis": "npm run test-coveralls",
-    "test": "npm run test-api",
+    "build-md": "mdast . -qfo",
+    "build-bundle": "browserify index.js -s trim-lines > trim-lines.js",
+    "build-mangle": "esmangle trim-lines.js > trim-lines.min.js",
+    "build": "npm run build-md && npm run build-bundle && npm run build-mangle",
     "lint": "xo",
-    "make": "npm run lint && npm run test-coverage",
-    "build-md": "mdast . LICENSE --output --quiet",
-    "build-bundle": "browserify index.js --bare -s trimLines > trim-lines.js",
-    "postbuild-bundle": "esmangle trim-lines.js > trim-lines.min.js",
-    "build": "npm run build-md && npm run build-bundle"
+    "test-api": "node test",
+    "test-coverage": "nyc --reporter lcov tape test.js",
+    "test": "npm run build && npm run lint && npm run test-coverage"
+  },
+  "nyc": {
+    "check-coverage": true,
+    "lines": 100,
+    "functions": 100,
+    "branches": 100
   },
   "xo": {
     "space": true,
     "ignore": [
       "trim-lines.js"
     ]
+  },
+  "remarkConfig": {
+    "presets": "wooorm"
   }
 }
