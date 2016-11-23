@@ -23,17 +23,13 @@
   "devDependencies": {
     "browserify": "^10.0.0",
     "esmangle": "^1.0.0",
-    "mdast": "^0.26.0",
-    "mdast-github": "^0.3.1",
-    "mdast-lint": "^0.4.1",
-    "mdast-usage": "^0.3.0",
-    "mdast-yaml-config": "^0.2.0",
-    "mocha": "^2.0.0",
+    "remark-cli": "^2.0.0",
+    "remark-preset-wooorm": "^1.0.0",
     "tape": "^4.6.3",
     "xo": "^0.17.1"
   },
   "scripts": {
-    "build-md": "mdast . -qfo",
+    "build-md": "remark . -qfo",
     "build-bundle": "browserify index.js -s trim-lines > trim-lines.js",
     "build-mangle": "esmangle trim-lines.js > trim-lines.min.js",
     "build": "npm run build-md && npm run build-bundle && npm run build-mangle",
