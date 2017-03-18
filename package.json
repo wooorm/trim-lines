@@ -27,7 +27,7 @@
     "remark-cli": "^3.0.0",
     "remark-preset-wooorm": "^2.0.0",
     "tape": "^4.6.3",
-    "xo": "^0.17.1"
+    "xo": "^0.18.0"
   },
   "scripts": {
     "build-md": "remark . -qfo",
@@ -47,6 +47,7 @@
   },
   "xo": {
     "space": true,
+    "esnext": false,
     "ignore": [
       "trim-lines.js"
     ]
