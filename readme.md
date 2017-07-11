@@ -22,16 +22,9 @@ trimLines(' foo\t\n\n bar \n\tbaz '); //=> ' foo\nbar\nbaz '
 
 ### `trimLines(value)`
 
-Remove initial and final spaces and tabs at the line breaks in `value`.  Does
-not trim initial and final spaces and tabs of the value itself.
-
-###### Parameters
-
-*   `value` (`string`) — Value with untrimmed line breaks, coerced to string.
-
-###### Returns
-
-`string` — Value with trimmed line breaks.
+Remove initial and final spaces and tabs at the line breaks in `value`
+(`string`).  Does not trim initial and final spaces and tabs of the value
+itself.  Returns the trimmed value.
 
 ## License
 
