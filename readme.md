@@ -13,9 +13,9 @@ npm install trim-lines
 ## Usage
 
 ```js
-var trimLines = require('trim-lines');
+var trimLines = require('trim-lines')
 
-trimLines(' foo\t\n\n bar \n\tbaz '); //=> ' foo\nbar\nbaz '
+trimLines(' foo\t\n\n bar \n\tbaz ') // => ' foo\nbar\nbaz '
 ```
 
 ## API

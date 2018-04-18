@@ -1,10 +1,10 @@
-'use strict';
+'use strict'
 
-module.exports = trimLines;
+module.exports = trimLines
 
-var ws = /[ \t]*\n+[ \t]*/g;
-var newline = '\n';
+var ws = /[ \t]*\n+[ \t]*/g
+var newline = '\n'
 
 function trimLines(value) {
-  return String(value).replace(ws, newline);
+  return String(value).replace(ws, newline)
 }
