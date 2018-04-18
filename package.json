@@ -21,13 +21,13 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "browserify": "^14.0.0",
+    "browserify": "^16.0.0",
     "esmangle": "^1.0.0",
     "nyc": "^11.0.0",
-    "remark-cli": "^3.0.0",
-    "remark-preset-wooorm": "^3.0.0",
+    "remark-cli": "^5.0.0",
+    "remark-preset-wooorm": "^4.0.0",
     "tape": "^4.6.3",
-    "xo": "^0.18.0"
+    "xo": "^0.20.0"
   },
   "scripts": {
     "build-md": "remark . -qfo",
@@ -48,6 +48,10 @@
   "xo": {
     "space": true,
     "esnext": false,
+    "rules": {
+      "no-var": "off",
+      "prefer-arrow-callback": "off"
+    },
     "ignore": [
       "trim-lines.js"
     ]
