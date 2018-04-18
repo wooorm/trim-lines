@@ -10,7 +10,7 @@
     "break",
     "trim"
   ],
-  "repository": "https://github.com/wooorm/trim-lines",
+  "repository": "wooorm/trim-lines",
   "bugs": "https://github.com/wooorm/trim-lines/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
