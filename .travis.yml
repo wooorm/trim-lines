@@ -4,19 +4,12 @@ node_js:
 - '8.0'
 after_script: bash <(curl -s https://codecov.io/bash)
 deploy:
-  - provider: npm
-    email: tituswormer@gmail.com
-    api_key:
-      secure: T7YBoXsVnulAUlrF4NN+jHqr4Zaqfrjhw5Y+RN82Mqp5QUw+pEtAX9sMhLKIj9iakW9hbeQqgOBymZW8kdbJ1N2VV5AOf3zfdnWgB18baTI/FjWo5TrJRmfrQ3u4SfM9x8kQHQ4IqDSFqzuwXcRgqGVPZaw6mfHGbQWCV4C9CE30EAl+gZgp/jVClFcUAAUtGiJG/L+SAtjCt4AoPUV5mYavgH3hJCJMVIHYC5bV46hHzURGwtjpdhd4g2QaX1FObxKrckZAneV2uBXhhu7EFU4srAC1+k01C7rCtiFZvq+KqaRfwdHQqlfdKsqSciYNwlcjnVXyhJ5m6jXbmvP5Km1vqCO6HHvFeoOPMYyJBXkVjsUEViBAWm9JawdNgIRgfHdAioV+4nRMlk8ttoDjv+L/mtn5/20tkqPV//fO3Pwb3SoNIyIa9AphU6/7040PutxPkT2lOaX4uqGVyQx82YVVqYCFPciFhlY5oSpG37L4bLDFCZhTn+05HnNg6VyLHTmuyCXuEhFxKSNz8hGmVshJjW6/Uy6/oWhBIbcJ3CI4mTQGLQTi2pmmcGMnOS818q/udW9yC60Uli8RLR29de1rWUwhziI64nfytsrDjIXNZ9fZHDNJa74Uj5d0QMShi9DjzU9o6fNdDYHJutCzphgNekyp4ynt0HFbFrtAMUc=
-    on:
-      tags: true
-      node: '4.0'
-  - provider: releases
-    api_key:
-      secure: zykLy6KZAQAPX6Xi8IZL5T7xBfC692TAHWQJTdgw4iziMidku2U4L2/cKkSLyZqRD1NN9LO1a9xgtKIOaUfNDnxBPlkAKLka1IG7JFwsACppBj96pMpTyW7wqScZvfeFCqBJgR7mMPNlYN51KOZYxuwrbToHdSJolR2IC7MDDt3WacCDng/SRtQtiJgT5/Dj/v0HERNQ6TFMkghlK/mWGe0X23wdJZ8tqRULmwonLX9T8W3eR5F53Mk84m9W0JcqyGbYCtu8ThMKtae+Wuc5gd0Uo4kfcXK6DhrXUOF9eSIkiA6MO8Tvd1xtPwhfU675lmsrO54OmM924gkRp2SGGrsZJMe+J8Gfs7apNN6b92zJlGH3FxVN6uggdjZ9J8FFy92e7ERKJOgAU/S6lRSVJwy8HcD4Kx0UaY20h2pSlpLVdKUMpDpw8+fcvLgHA5YO+Ml8xkCWcwfKM3a/ilbLH9VXcbiv5cg406acqgcq9AtVjzGz+H9rARvvBjLE19DHWXRJquSnqLZ4bKfKVGnwt+YB8AEULEgfYQIQkKL5YJmWOQ0jzIm32DwraFyN7Q77qUnfb/8gnifXytQRz1SmPygZbPz7tmyNyy2IMjrHBomiJYR0UWx0a5GT+ll6whjgQIZZIEe+wY69ZIu5k12/g7piISbpfMLp4AWHIDUnTXc=
-    file:
-      - "trim-lines.js"
-      - "trim-lines.min.js"
-    on:
-      tags: true
-      node: '8.0'
+  provider: releases
+  api_key:
+    secure: zykLy6KZAQAPX6Xi8IZL5T7xBfC692TAHWQJTdgw4iziMidku2U4L2/cKkSLyZqRD1NN9LO1a9xgtKIOaUfNDnxBPlkAKLka1IG7JFwsACppBj96pMpTyW7wqScZvfeFCqBJgR7mMPNlYN51KOZYxuwrbToHdSJolR2IC7MDDt3WacCDng/SRtQtiJgT5/Dj/v0HERNQ6TFMkghlK/mWGe0X23wdJZ8tqRULmwonLX9T8W3eR5F53Mk84m9W0JcqyGbYCtu8ThMKtae+Wuc5gd0Uo4kfcXK6DhrXUOF9eSIkiA6MO8Tvd1xtPwhfU675lmsrO54OmM924gkRp2SGGrsZJMe+J8Gfs7apNN6b92zJlGH3FxVN6uggdjZ9J8FFy92e7ERKJOgAU/S6lRSVJwy8HcD4Kx0UaY20h2pSlpLVdKUMpDpw8+fcvLgHA5YO+Ml8xkCWcwfKM3a/ilbLH9VXcbiv5cg406acqgcq9AtVjzGz+H9rARvvBjLE19DHWXRJquSnqLZ4bKfKVGnwt+YB8AEULEgfYQIQkKL5YJmWOQ0jzIm32DwraFyN7Q77qUnfb/8gnifXytQRz1SmPygZbPz7tmyNyy2IMjrHBomiJYR0UWx0a5GT+ll6whjgQIZZIEe+wY69ZIu5k12/g7piISbpfMLp4AWHIDUnTXc=
+  file:
+    - "trim-lines.js"
+    - "trim-lines.min.js"
+  on:
+    tags: true
+    node: '8.0'
