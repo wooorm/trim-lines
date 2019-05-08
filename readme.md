@@ -1,4 +1,9 @@
-# trim-lines [![Build Status][travtrim-lines]][travis] [![Coverage Status][codecov-badge]][codecov]
+# trim-lines
+
+[![Build][build-badge]][build]
+[![Coverage][coverage-badge]][coverage]
+[![Downloads][downloads-badge]][downloads]
+[![Size][size-badge]][size]
 
 Remove spaces and tabs around line-breaks.
 
@@ -32,13 +37,21 @@ itself.  Returns the trimmed value.
 
 <!-- Definitions -->
 
-[travtrim-lines]: https://img.shields.io/travis/wooorm/trim-lines.svg
+[build-badge]: https://img.shields.io/travis/wooorm/trim-lines.svg
 
-[travis]: https://travis-ci.org/wooorm/trim-lines
+[build]: https://travis-ci.org/wooorm/trim-lines
 
-[codecov-badge]: https://img.shields.io/codecov/c/github/wooorm/trim-lines.svg
+[coverage-badge]: https://img.shields.io/codecov/c/github/wooorm/trim-lines.svg
 
-[codecov]: https://codecov.io/github/wooorm/trim-lines
+[coverage]: https://codecov.io/github/wooorm/trim-lines
+
+[downloads-badge]: https://img.shields.io/npm/dm/trim-lines.svg
+
+[downloads]: https://www.npmjs.com/package/trim-lines
+
+[size-badge]: https://img.shields.io/bundlephobia/minzip/trim-lines.svg
+
+[size]: https://bundlephobia.com/result?p=trim-lines
 
 [npm]: https://docs.npmjs.com/cli/install
 
