@@ -5,17 +5,17 @@
 [![Downloads][downloads-badge]][downloads]
 [![Size][size-badge]][size]
 
-Remove spaces and tabs around line-breaks.
+Remove spaces and tabs around line breaks.
 
-## Installation
+## Install
 
 [npm][]:
 
-```bash
+```sh
 npm install trim-lines
 ```
 
-## Usage
+## Use
 
 ```js
 var trimLines = require('trim-lines')
@@ -28,8 +28,9 @@ trimLines(' foo\t\n\n bar \n\tbaz ') // => ' foo\nbar\nbaz '
 ### `trimLines(value)`
 
 Remove initial and final spaces and tabs at the line breaks in `value`
-(`string`).  Does not trim initial and final spaces and tabs of the value
-itself.  Returns the trimmed value.
+(`string`).
+Does not trim initial and final spaces and tabs of the value itself.
+Returns the trimmed value.
 
 ## License
 
