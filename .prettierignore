@@ -1,3 +1,5 @@
 coverage/
 trim-lines.js
 trim-lines.min.js
+*.json
+*.md
