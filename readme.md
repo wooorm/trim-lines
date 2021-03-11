@@ -38,9 +38,9 @@ Returns the trimmed value.
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/wooorm/trim-lines.svg
+[build-badge]: https://github.com/wooorm/trim-lines/workflows/main/badge.svg
 
-[build]: https://travis-ci.org/wooorm/trim-lines
+[build]: https://github.com/wooorm/trim-lines/actions
 
 [coverage-badge]: https://img.shields.io/codecov/c/github/wooorm/trim-lines.svg
 
