@@ -9,6 +9,9 @@ Remove spaces and tabs around line breaks.
 
 ## Install
 
+This package is ESM only: Node 12+ is needed to use it and it must be `import`ed
+instead of `require`d.
+
 [npm][]:
 
 ```sh
@@ -18,12 +21,15 @@ npm install trim-lines
 ## Use
 
 ```js
-var trimLines = require('trim-lines')
+import {trimLines} from 'trim-lines'
 
 trimLines(' foo\t\n\n bar \n\tbaz ') // => ' foo\nbar\nbaz '
 ```
 
 ## API
+
+This package exports the following identifiers: `trimLines`.
+There is no default export.
 
 ### `trimLines(value)`
 
