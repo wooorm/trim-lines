@@ -8,5 +8,42 @@
  *   Trimmed value.
  */
 export function trimLines(value) {
-  return String(value).replace(/[ \t]*(\r?\n|\r)[ \t]*/g, '$1')
+  const source = String(value)
+  const search = /\r?\n|\r/g
+  let match = search.exec(source)
+  let last = 0
+  /** @type {Array<string>} */
+  const lines = []
+
+  while (match) {
+    lines.push(
+      trimLine(source.slice(last, match.index), last === 0, false),
+      match[0]
+    )
+
+    last = match.index + match[0].length
+    match = search.exec(source)
+  }
+
+  lines.push(trimLine(source.slice(last), last === 0, true))
+
+  return lines.join('')
+}
+
+/**
+ * @param {string} value
+ * @param {boolean} start
+ * @param {boolean} end
+ * @returns {string}
+ */
+function trimLine(value, start, end) {
+  if (!start) {
+    value = value.replace(/^[ \t]+/, '')
+  }
+
+  if (!end) {
+    value = value.replace(/[ \t]+$/, '')
+  }
+
+  return value
 }
