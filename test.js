@@ -6,7 +6,7 @@ test('trimLines(value)', function (t) {
   t.equal(trimLines(true), 'true', 'should coerce to string')
   t.equal(
     trimLines(' foo\t\n\n bar \n\tbaz '),
-    ' foo\nbar\nbaz ',
+    ' foo\n\nbar\nbaz ',
     'should work'
   )
   t.end()

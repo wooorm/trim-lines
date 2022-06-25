@@ -23,7 +23,7 @@ npm install trim-lines
 ```js
 import {trimLines} from 'trim-lines'
 
-trimLines(' foo\t\n\n bar \n\tbaz ') // => ' foo\nbar\nbaz '
+trimLines(' foo\t\n\n bar \n\tbaz ') // => ' foo\n\nbar\nbaz '
 ```
 
 ## API

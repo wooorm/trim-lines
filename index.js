@@ -8,5 +8,5 @@
  *   Trimmed value.
  */
 export function trimLines(value) {
-  return String(value).replace(/[ \t]*(\r?\n|\r)+[ \t]*/g, '$1')
+  return String(value).replace(/[ \t]*(\r?\n|\r)[ \t]*/g, '$1')
 }
