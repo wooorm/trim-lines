@@ -38,11 +38,15 @@ export function trimLines(value) {
  */
 function trimLine(value, start, end) {
   if (!start) {
-    value = value.replace(/^[ \t]+/, '')
+    const regex = /^[ \t]+/
+    value = value.replace(regex, '')
   }
 
   if (!end) {
-    value = value.replace(/[ \t]+$/, '')
+    const regex = /[ \t]/
+    let i = value.length
+    while (regex.test(value.charAt(--i)));
+    return value.slice(0, i + 1)
   }
 
   return value

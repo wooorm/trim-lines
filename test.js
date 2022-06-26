@@ -36,21 +36,28 @@ test('efficiency', (t) => {
   t.test('whitespace around line', (t) => {
     const timeoutId = setTimeout(() => {
       t.fail('did not pass in 10ms')
-    }, 10)
+    }, 20)
 
     t.deepEqual(
       trimLines(
-        'a' +
+        whitespace +
+          '\n' +
+          whitespace +
+          'a' +
           whitespace +
           '\n' +
           whitespace +
           'b' +
           whitespace +
+          'c' +
+          whitespace +
           '\n' +
           whitespace +
-          'c'
+          'd' +
+          whitespace +
+          '\n'
       ),
-      'a\nb\nc'
+      '\na\nb' + whitespace + 'c\nd\n'
     )
 
     setTimeout(() => {
