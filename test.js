@@ -13,19 +13,44 @@ test('trimLines(value)', function (t) {
 })
 
 test('efficiency', (t) => {
-  const aTonOfWhitespace = 'a' + ' '.repeat(70_000) + 'b'
-  const timeoutId = setTimeout(() => {
-    t.fail('should process lots of whitespace efficiently')
-  }, 10)
+  const whitespace = ' '.repeat(70_000)
 
-  t.deepEqual(
-    trimLines(aTonOfWhitespace),
-    aTonOfWhitespace,
-    'should be efficient on excessive whitespace'
-  )
+  t.test('whitespace in line', (t) => {
+    const timeoutId = setTimeout(() => {
+      t.fail('did not pass in 10ms')
+    }, 10)
 
-  setTimeout(() => {
-    clearTimeout(timeoutId)
-    t.end()
-  }, 0)
+    t.deepEqual(trimLines('a' + whitespace + 'b'), 'a' + whitespace + 'b')
+
+    setTimeout(() => {
+      clearTimeout(timeoutId)
+      t.end()
+    }, 0)
+  })
+
+  t.test('whitespace around line', (t) => {
+    const timeoutId = setTimeout(() => {
+      t.fail('did not pass in 10ms')
+    }, 10)
+
+    t.deepEqual(
+      trimLines(
+        'a' +
+          whitespace +
+          '\n' +
+          whitespace +
+          'b' +
+          whitespace +
+          '\n' +
+          whitespace +
+          'c'
+      ),
+      'a\nb\nc'
+    )
+
+    setTimeout(() => {
+      clearTimeout(timeoutId)
+      t.end()
+    }, 0)
+  })
 })
