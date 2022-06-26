@@ -9,6 +9,11 @@ test('trimLines(value)', function (t) {
     ' foo\n\nbar\nbaz ',
     'should work'
   )
+  t.equal(
+    trimLines('a \r b \r\n c \n d'),
+    'a\rb\r\nc\nd',
+    'should preseve line endings'
+  )
   t.end()
 })
 
