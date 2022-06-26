@@ -38,8 +38,7 @@ export function trimLines(value) {
  */
 function trimLine(value, start, end) {
   if (!start) {
-    const regex = /^[ \t]+/
-    value = value.replace(regex, '')
+    value = value.replace( /^[ \t]+/, '')
   }
 
   if (!end) {
