@@ -33,31 +33,53 @@ test('efficiency', (t) => {
     }, 0)
   })
 
-  t.test('whitespace around line', (t) => {
+  t.test('flanking whitespace', (t) => {
+    const timeoutId = setTimeout(() => {
+      t.fail('did not pass in 10ms')
+    }, 10)
+
+    t.deepEqual(trimLines(whitespace + '\na\n' + whitespace), '\na\n')
+
+    setTimeout(() => {
+      clearTimeout(timeoutId)
+      t.end()
+    }, 0)
+  })
+
+  t.test('internalized whitespace ', (t) => {
     const timeoutId = setTimeout(() => {
       t.fail('did not pass in 30ms')
     }, 30)
 
     t.deepEqual(
+      trimLines('\na' + whitespace + 'b\n'),
+      '\na' + whitespace + 'b\n'
+    )
+
+    setTimeout(() => {
+      clearTimeout(timeoutId)
+      t.end()
+    }, 0)
+  })
+
+  t.test('whitespace around line', (t) => {
+    const timeoutId = setTimeout(() => {
+      t.fail('did not pass in 10ms')
+    }, 10)
+
+    t.deepEqual(
       trimLines(
-        whitespace +
-          '\n' +
-          whitespace +
-          'a' +
+        'a' +
           whitespace +
           '\n' +
           whitespace +
           'b' +
           whitespace +
-          'c' +
-          whitespace +
           '\n' +
           whitespace +
-          'd' +
-          whitespace +
-          '\n'
+          'c'
       ),
-      '\na\nb' + whitespace + 'c\nd\n'
+      'a\nb\nc'
     )
 
     setTimeout(() => {

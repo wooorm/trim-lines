@@ -42,10 +42,14 @@ function trimLine(value, start, end) {
   }
 
   if (!end) {
-    const regex = /[ \t]/
-    let i = value.length
-    while (regex.test(value.charAt(--i)));
-    return value.slice(0, i + 1)
+    let endIndex = value.length - 1
+    let char = value.charAt(endIndex)
+    while (char === ' ' || char === '\t') {
+      endIndex--
+      char = value.charAt(endIndex)
+    }
+
+    value = value.slice(0, endIndex + 1)
   }
 
   return value
