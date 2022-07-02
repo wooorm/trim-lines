@@ -17,7 +17,7 @@ export function trimLines(value) {
 
   while (match) {
     lines.push(
-      trimLine(source.slice(last, match.index), last === 0, false),
+      trimLine(source.slice(last, match.index), last !== 0, true),
       match[0]
     )
 
@@ -25,7 +25,7 @@ export function trimLines(value) {
     match = search.exec(source)
   }
 
-  lines.push(trimLine(source.slice(last), last === 0, true))
+  lines.push(trimLine(source.slice(last), last !== 0, false))
 
   return lines.join('')
 }
@@ -37,20 +37,25 @@ export function trimLines(value) {
  * @returns {string}
  */
 function trimLine(value, start, end) {
-  if (!start) {
-    value = value.replace(/^[ \t]+/, '')
-  }
+  let startIndex = 0
+  let endIndex = value.length
+  if (start) {
+    let code = value.codePointAt(startIndex)
 
-  if (!end) {
-    let endIndex = value.length - 1
-    let char = value.charAt(endIndex)
-    while (char === ' ' || char === '\t') {
-      endIndex--
-      char = value.charAt(endIndex)
+    while (code === 9 || code === 32) {
+      startIndex++
+      code = value.codePointAt(startIndex)
     }
-
-    value = value.slice(0, endIndex + 1)
   }
 
-  return value
+  if (end) {
+    let code = value.codePointAt(endIndex - 1)
+
+    while (code === 9 || code === 32) {
+      endIndex--
+      code = value.codePointAt(endIndex - 1)
+    }
+  }
+
+  return endIndex > startIndex ? value.slice(startIndex, endIndex) : ''
 }
