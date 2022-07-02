@@ -1,3 +1,6 @@
+const SPACE = 32
+const TAB = 9
+
 /**
  * Remove initial and final spaces and tabs at the line breaks in `value`.
  * Does not trim initial and final spaces and tabs of the value itself.
@@ -42,7 +45,7 @@ function trimLine(value, start, end) {
   if (start) {
     let code = value.codePointAt(startIndex)
 
-    while (code === 9 || code === 32) {
+    while (code === SPACE || code === TAB) {
       startIndex++
       code = value.codePointAt(startIndex)
     }
@@ -51,7 +54,7 @@ function trimLine(value, start, end) {
   if (end) {
     let code = value.codePointAt(endIndex - 1)
 
-    while (code === 9 || code === 32) {
+    while (code === SPACE || code === TAB) {
       endIndex--
       code = value.codePointAt(endIndex - 1)
     }
