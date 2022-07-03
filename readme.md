@@ -35,7 +35,7 @@ want to run into performance problems.
 ## Install
 
 This package is [ESM only][esm].
-In Node.js (version 12.20+, 14.14+, 16.0+, or 18.0+), install with [npm][]:
+In Node.js (version 14.14+, 16.0+, or 18.0+), install with [npm][]:
 
 ```sh
 npm install trim-lines
@@ -44,21 +44,21 @@ npm install trim-lines
 In Deno with [`esm.sh`][esmsh]:
 
 ```js
-import trimLines from 'https://esm.sh/trim-lines@2'
+import trimLines from 'https://esm.sh/trim-lines@3'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import trimLines from 'https://esm.sh/trim-lines@2?bundle'
+  import trimLines from 'https://esm.sh/trim-lines@3?bundle'
 </script>
 ```
 
 ## Use
 
 ```js
-import {trimLines} from './index.js'
+import {trimLines} from 'trim-lines'
 
 console.log(trimLines(' foo\t\n\n bar \n\tbaz ')) // => ' foo\n\nbar\nbaz '
 ```
