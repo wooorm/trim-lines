@@ -1,5 +1,5 @@
-const SPACE = 32
-const TAB = 9
+const tab = 9 /* `\t` */
+const space = 32 /* ` ` */
 
 /**
  * Remove initial and final spaces and tabs at the line breaks in `value`.
@@ -20,7 +20,7 @@ export function trimLines(value) {
 
   while (match) {
     lines.push(
-      trimLine(source.slice(last, match.index), last !== 0, true),
+      trimLine(source.slice(last, match.index), last > 0, true),
       match[0]
     )
 
@@ -28,24 +28,29 @@ export function trimLines(value) {
     match = search.exec(source)
   }
 
-  lines.push(trimLine(source.slice(last), last !== 0, false))
+  lines.push(trimLine(source.slice(last), last > 0, false))
 
   return lines.join('')
 }
 
 /**
  * @param {string} value
+ *   Line to trim.
  * @param {boolean} start
+ *   Whether to trim the start of the line.
  * @param {boolean} end
+ *   Whether to trim the end of the line.
  * @returns {string}
+ *   Trimmed line.
  */
 function trimLine(value, start, end) {
   let startIndex = 0
   let endIndex = value.length
+
   if (start) {
     let code = value.codePointAt(startIndex)
 
-    while (code === SPACE || code === TAB) {
+    while (code === tab || code === space) {
       startIndex++
       code = value.codePointAt(startIndex)
     }
@@ -54,7 +59,7 @@ function trimLine(value, start, end) {
   if (end) {
     let code = value.codePointAt(endIndex - 1)
 
-    while (code === SPACE || code === TAB) {
+    while (code === tab || code === space) {
       endIndex--
       code = value.codePointAt(endIndex - 1)
     }

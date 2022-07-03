@@ -25,12 +25,12 @@ test('trimLines(value)', function (t) {
 test('efficiency', (t) => {
   const whitespace = ' '.repeat(70_000)
 
-  t.test('whitespace in line', (t) => {
+  t.test('whitespace in line (1)', (t) => {
     const timeoutId = setTimeout(() => {
       t.fail('did not pass in 30ms')
     }, 30)
 
-    t.deepEqual(trimLines('a' + whitespace + 'b'), 'a' + whitespace + 'b')
+    t.equal(trimLines('a' + whitespace + 'b'), 'a' + whitespace + 'b')
 
     setTimeout(() => {
       clearTimeout(timeoutId)
@@ -38,12 +38,12 @@ test('efficiency', (t) => {
     }, 0)
   })
 
-  t.test('flanking whitespace', (t) => {
+  t.test('whitespace in line (2)', (t) => {
     const timeoutId = setTimeout(() => {
       t.fail('did not pass in 30ms')
     }, 30)
 
-    t.deepEqual(trimLines(whitespace + '\na\n' + whitespace), '\na\n')
+    t.equal(trimLines('\na' + whitespace + 'b\n'), '\na' + whitespace + 'b\n')
 
     setTimeout(() => {
       clearTimeout(timeoutId)
@@ -51,15 +51,12 @@ test('efficiency', (t) => {
     }, 0)
   })
 
-  t.test('internalized whitespace', (t) => {
+  t.test('whitespace-only lines', (t) => {
     const timeoutId = setTimeout(() => {
       t.fail('did not pass in 30ms')
     }, 30)
 
-    t.deepEqual(
-      trimLines('\na' + whitespace + 'b\n'),
-      '\na' + whitespace + 'b\n'
-    )
+    t.equal(trimLines(whitespace + '\na\n' + whitespace), '\na\n')
 
     setTimeout(() => {
       clearTimeout(timeoutId)
@@ -67,12 +64,12 @@ test('efficiency', (t) => {
     }, 0)
   })
 
-  t.test('whitespace around line', (t) => {
+  t.test('whitespace around line endings', (t) => {
     const timeoutId = setTimeout(() => {
       t.fail('did not pass in 30ms')
     }, 30)
 
-    t.deepEqual(
+    t.equal(
       trimLines(
         'a' +
           whitespace +
