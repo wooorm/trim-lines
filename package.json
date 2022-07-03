@@ -1,6 +1,6 @@
 {
   "name": "trim-lines",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Remove spaces and tabs around line-breaks",
   "license": "MIT",
   "keywords": [
