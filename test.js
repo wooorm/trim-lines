@@ -1,75 +1,87 @@
-import test from 'tape'
+import assert from 'node:assert/strict'
+import test from 'node:test'
 import {trimLines} from './index.js'
 
-test('trimLines(value)', function (t) {
+test('trimLines(value)', function () {
   // @ts-expect-error coerce.
-  t.equal(trimLines(true), 'true', 'should coerce to string')
-  t.equal(
+  assert.equal(trimLines(true), 'true', 'should coerce to string')
+  assert.equal(
     trimLines(' foo\t\n\n bar \n\tbaz '),
     ' foo\n\nbar\nbaz ',
     'should work'
   )
-  t.equal(
+  assert.equal(
     trimLines('a \r b \r\n c \n d'),
     'a\rb\r\nc\nd',
     'should preseve line endings'
   )
-  t.equal(
+  assert.equal(
     trimLines(' \n \n \n '),
     '\n\n\n',
     'should handle complete empty space'
   )
-  t.end()
 })
 
-test('efficiency', (t) => {
+test('performance', async () => {
   const whitespace = ' '.repeat(70_000)
 
-  t.test('whitespace in line (1)', (t) => {
-    const timeoutId = setTimeout(() => {
-      t.fail('did not pass in 30ms')
+  await new Promise((resolve) => {
+    const timer = setTimeout(() => {
+      assert.fail('did not pass in 30ms')
     }, 30)
 
-    t.equal(trimLines('a' + whitespace + 'b'), 'a' + whitespace + 'b')
+    assert.equal(
+      trimLines('a' + whitespace + 'b'),
+      'a' + whitespace + 'b',
+      'whitespace in line (1)'
+    )
 
     setTimeout(() => {
-      clearTimeout(timeoutId)
-      t.end()
+      clearTimeout(timer)
+      resolve(undefined)
     }, 0)
   })
 
-  t.test('whitespace in line (2)', (t) => {
-    const timeoutId = setTimeout(() => {
-      t.fail('did not pass in 30ms')
+  await new Promise((resolve) => {
+    const timer = setTimeout(() => {
+      assert.fail('did not pass in 30ms')
     }, 30)
 
-    t.equal(trimLines('\na' + whitespace + 'b\n'), '\na' + whitespace + 'b\n')
+    assert.equal(
+      trimLines('\na' + whitespace + 'b\n'),
+      '\na' + whitespace + 'b\n',
+      'whitespace in line (2)'
+    )
 
     setTimeout(() => {
-      clearTimeout(timeoutId)
-      t.end()
+      clearTimeout(timer)
+      resolve(undefined)
     }, 0)
   })
 
-  t.test('whitespace-only lines', (t) => {
-    const timeoutId = setTimeout(() => {
-      t.fail('did not pass in 30ms')
+  await new Promise((resolve) => {
+    const timer = setTimeout(() => {
+      assert.fail('did not pass in 30ms')
     }, 30)
 
-    t.equal(trimLines(whitespace + '\na\n' + whitespace), '\na\n')
+    assert.equal(
+      trimLines(whitespace + '\na\n' + whitespace),
+      '\na\n',
+      'whitespace-only lines'
+    )
 
     setTimeout(() => {
-      clearTimeout(timeoutId)
-      t.end()
+      clearTimeout(timer)
+      resolve(undefined)
     }, 0)
   })
 
-  t.test('whitespace around line endings', (t) => {
-    const timeoutId = setTimeout(() => {
-      t.fail('did not pass in 30ms')
+  await new Promise((resolve) => {
+    const timer = setTimeout(() => {
+      assert.fail('did not pass in 30ms')
     }, 30)
 
-    t.equal(
+    assert.equal(
       trimLines(
         'a' +
           whitespace +
@@ -81,12 +93,13 @@ test('efficiency', (t) => {
           whitespace +
           'c'
       ),
-      'a\nb\nc'
+      'a\nb\nc',
+      'whitespace around line endings'
     )
 
     setTimeout(() => {
-      clearTimeout(timeoutId)
-      t.end()
+      clearTimeout(timer)
+      resolve(undefined)
     }, 0)
   })
 })
