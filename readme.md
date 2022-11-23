@@ -5,7 +5,7 @@
 [![Downloads][downloads-badge]][downloads]
 [![Size][size-badge]][size]
 
-Remove spaces and tabs around line breaks.
+Remove initial and final spaces and tabs around line endings in a value.
 
 ## Contents
 
@@ -17,14 +17,15 @@ Remove spaces and tabs around line breaks.
     *   [`trimLines(value)`](#trimlinesvalue)
 *   [Types](#types)
 *   [Compatibility](#compatibility)
+*   [Security](#security)
 *   [Contribute](#contribute)
 *   [License](#license)
 
 ## What is this?
 
-This package is a tiny utility that removes spaces and tabs around line endings,
-keeping the line endings, and not removing whitespace at the start or end of the
-string.
+This package is a tiny utility that removes initial and final spaces and tabs
+around line endings in a value, keeping the line endings themselves, while not
+removing whitespace at the start or end of the entire string.
 It might look trivial, but it’s actually pretty complex to get performant.
 
 ## When should I use this?
@@ -35,7 +36,7 @@ want to run into performance problems.
 ## Install
 
 This package is [ESM only][esm].
-In Node.js (version 14.14+, 16.0+, or 18.0+), install with [npm][]:
+In Node.js (version 14.14+, 16.0+), install with [npm][]:
 
 ```sh
 npm install trim-lines
@@ -70,7 +71,9 @@ There is no default export.
 
 ### `trimLines(value)`
 
-Remove spaces and tabs around line breaks in `value` (`string`).
+Remove initial and final spaces and tabs around line endings in `value`
+(`string`).
+Does not trim initial and final spaces and tabs of the value itself.
 
 ## Types
 
@@ -80,8 +83,12 @@ It exports no additional types.
 ## Compatibility
 
 This package is at least compatible with all maintained versions of Node.js.
-As of now, that is Node.js 14.14+, 16.0+, and 18.0+.
+As of now, that is Node.js 14.14+ and 16.0+.
 It also works in Deno and modern browsers.
+
+## Security
+
+This package is safe.
 
 ## Contribute
 

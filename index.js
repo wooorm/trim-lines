@@ -2,7 +2,7 @@ const tab = 9 /* `\t` */
 const space = 32 /* ` ` */
 
 /**
- * Remove initial and final spaces and tabs at the line breaks in `value`.
+ * Remove initial and final spaces and tabs around line endings in `value`.
  * Does not trim initial and final spaces and tabs of the value itself.
  *
  * @param {string} value
